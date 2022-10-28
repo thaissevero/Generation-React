@@ -1,0 +1,11 @@
+.titulo {
+    color:darkmagenta;
+    text-align: center;
+}
+
+.img {
+    width: 900px;
+    height: 500px;
+    display: block;
+    margin: 0 auto; /* Suficiente p/ centraliza a imagem*/
+}
