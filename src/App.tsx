@@ -4,6 +4,7 @@ import Navbar from './components/estaticos/navbar/Navbar';
 import Footer from './components/estaticos/footer/Footer';
 import Home from './paginas/Home/Home';  /* ./ indentificar qual pasta você quer exportar */
 import Login from './paginas/login/Login';
+import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 import './App.css';
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
           <Route path="/login" element={<Login />} />
 
           <Route path="/home" element={<Home />} />
+
+          <Route path="/cadastrousuario" element={<CadastroUsuario />} />
+
           
         </Routes>
       </div>
