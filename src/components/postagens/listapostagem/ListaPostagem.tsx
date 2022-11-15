@@ -3,21 +3,37 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import { Box } from '@mui/material';
 import Postagem from '../../../models/Postagem';
-import './ListaPostagem.css';
-import useLocalStorage from 'react-use-localstorage';
 import { busca } from '../../../services/Service';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
+
+import './ListaPostagem.css';
 
 function ListaPostagem() {
     const [postagens, setPostagens] = useState<Postagem[]>([])
-    const [token, setToken] = useLocalStorage('token');
+
     let navigate = useNavigate();
 
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    )
+
     useEffect(() => {
-        if (token == '') {
-            alert("Você precisa estar logado para visualizar essa postagem")
-            navigate("/login")
+        if (token == "") {
+            toast.error("Você precisa estar logado", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: "dark",
+                progress: undefined,
+            });
+            navigate("/login");
         }
-    }, [token])
+    }, [token]);
 
     async function getPostagem() {
         await busca('/postagens', setPostagens, {

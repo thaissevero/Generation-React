@@ -17,7 +17,11 @@
     background-color: white;
 }
 
+.text-decorator-none{
+    text-decoration: none;
+}
+
 
 /*
-No css para finalizar usamos ;
+; - usado para finalizar 
 */

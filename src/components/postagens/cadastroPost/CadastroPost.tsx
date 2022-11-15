@@ -1,22 +1,36 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { Container, Typography, TextField, Button, FormControl, Select, InputLabel, FormHelperText, MenuItem } from "@material-ui/core";
 import { useNavigate, useParams } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
 import Tema from "../../../models/Tema";
 import Postagem from "../../../models/Postagem";
 import { busca, buscaId, post, put } from "../../../services/Service";
 import './CadastroPost.css';
+import { useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/tokensReducer";
+import { toast } from "react-toastify";
 
 
 function CadastroPost() {
     let navigate = useNavigate();
+
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens);
+
     const { id } = useParams<{ id: string }>();
     const [temas, setTemas] = useState<Tema[]>([]);
-    const [token, setToken] = useLocalStorage('token');
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado pra fazer isso!');
+            toast.error('Você precisa estar logado!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: 'colored',
+                progress: undefined,
+            })
             navigate('/login');
         }
     }, [token]);
@@ -74,28 +88,39 @@ function CadastroPost() {
 
     async function cadastrar(event: ChangeEvent<HTMLFormElement>) {
         event.preventDefault();
+
         if (id !== undefined) {
-            try {
-                await put("/postagens", postagem, setPostagem, {
-                    headers: {
-                        Authorization: token,
-                    },
-                });
-                alert("Postagem atualizada com sucesso");
-            } catch (error) {
-                alert("Falha ao atualizar a postagem");
-            }
+            put(`/postagens`, postagem, setPostagem, {
+                headers: {
+                    Authorization: token,
+                },
+            });
+            toast.success("Postagem atualizada com sucesso!", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: "dark",
+                progress: undefined,
+            });
         } else {
-            try {
-                await post("/postagens", postagem, setPostagem, {
-                    headers: {
-                        Authorization: token,
-                    },
-                });
-                alert("postagem feita com sucesso");
-            } catch (error) {
-                alert("Falha ao cadastrar a postagem");
-            }
+            post(`/postagens`, postagem, setPostagem, {
+                headers: {
+                    Authorization: token,
+                },
+            });
+            toast.success("Postagem cadastrada com sucesso!", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: "dark",
+                progress: undefined,
+            });
         }
         back();
     }
@@ -114,13 +139,13 @@ function CadastroPost() {
                 <TextField
                     value={postagem.titulo}
                     onChange={(event: ChangeEvent<HTMLInputElement>) => updateModel(event)}
-                    
-                id="titulo"
-                label="titulo"
-                variant="outlined"
-                name="titulo"
-                margin="normal"
-                fullWidth
+
+                    id="titulo"
+                    label="titulo"
+                    variant="outlined"
+                    name="titulo"
+                    margin="normal"
+                    fullWidth
                 />
                 <TextField
                     id='texto'

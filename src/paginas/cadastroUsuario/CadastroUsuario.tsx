@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import User from '../../models/User';
 import { cadastroUsuario } from '../../services/Service';
 import './CadastroUsuario.css';
+import { toast } from 'react-toastify';
 
 
 function CadastroUsuario() {
@@ -36,11 +37,9 @@ function CadastroUsuario() {
         }
     }, [userResult])
 
-
     function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>) {
         setConfirmarSenha(e.target.value)
     }
-
 
     function updatedModel(e: ChangeEvent<HTMLInputElement>) {
 
@@ -54,18 +53,45 @@ function CadastroUsuario() {
         e.preventDefault()
         if (confirmarSenha === user.senha && user.senha.length >= 8) {
             try {
-            await cadastroUsuario('/usuarios/cadastrar', user, setUserResult);
-            alert('Usuario cadastrado com sucesso');
+                await cadastroUsuario('/usuarios/cadastrar', user, setUserResult);
+                toast.success("Usuário cadastrado com sucesso!", {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: false,
+                    theme: "dark",
+                    progress: undefined,
+                });
             } catch (error) {
-                alert('Falha interna ao cadastrar');
+                toast.error("Falha ao cadastrar, dados inseridos são inconsistentes.", {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: false,
+                    theme: "dark",
+                    progress: undefined,
+                });
             }
         } else {
-            alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
-            setUser({...user, senha: ''});
+            toast.error("As senhas não conferem. Tente novamente.", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: "dark",
+                progress: undefined,
+            });
+            setUser({ ...user, senha: '' });
             setConfirmarSenha('');
-                }
+        }
     }
-    
+
     return (
         <Grid container direction='row' justifyContent='center' alignItems='center'>
             <Grid item xs={6} className='imagem2'></Grid>
