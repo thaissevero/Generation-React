@@ -7,7 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { addToken } from '../../../store/tokens/actions';
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
+import { Palette } from '@mui/icons-material';
 
 
 function Navbar() {
@@ -15,14 +16,14 @@ function Navbar() {
 
     const token = useSelector<TokenState, TokenState['tokens']>(
         (state) => state.tokens
-        );
+    );
 
     const dispatch = useDispatch();
 
     function goLogout() {
         dispatch(addToken(""));
         toast.info('Usuário deslogado', {
-            position: "top-right", 
+            position: "top-right",
             autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
@@ -38,50 +39,68 @@ function Navbar() {
 
     if (token !== "") {
         navbarComponent = (
-        <AppBar position="static">
-            <Toolbar variant="dense">
-                <Box style={{ cursor: 'pointer' }}>
-                    <Typography variant="h5" color="inherit">
-                        BlogPessoal
-                    </Typography>
-                </Box>
-                <Box display="flex" justifyContent="start">
-                    <Link to="/home" className="text-decorator-none">
-                        <Box mx={1} style={{ cursor: 'pointer' }}>
-                            <Typography variant="h6" color="inherit">
-                                Home
-                            </Typography>
+            <AppBar position="static">
+                <Toolbar variant="dense" className="navbar">
+                    <div className='itemnavbar1'>
+                        <Box display="flex" justifyContent="start" style={{ cursor: 'pointer' }}>
+                            <Link to="/home" className="text-decorator-none">
+                                <Box mx={1} className='cursor'>
+                                    <img src="https://i.imgur.com/RYeg0cs.gif" width="100px" height="100px" />
+                                </Box>
+                            </Link>
                         </Box>
-                    </Link>
-                    <Link to="/posts" className="text-decorator-none">
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                Postagens
-                            </Typography>
+                    </div>
+                    <div className='itemnavbar2'>
+                        <Box display="flex" justifyContent="start">
+                            <Link to="/home" className="text-decorator-none">
+                                <Box mx={1} className='cursor'>
+                                    <Typography variant="h6" color="inherit">
+                                        MY BLOG
+                                    </Typography>
+                                </Box>
+                            </Link>
                         </Box>
-                    </Link>
-                    <Link to="/temas" className="text-decorator-none">
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                Temas
-                            </Typography>
+                    </div>
+
+                    <div className="itemnavbar">
+                        <Box display="flex" justifyContent="start">
+                            <Link to="/home" className="text-decorator-none">
+                                <Box mx={3} className='cursor'>
+                                    <Typography variant="h6" color="inherit">
+                                        HOME
+                                    </Typography>
+                                </Box>
+                            </Link>
+                            <Link to="/posts" className="text-decorator-none">
+                                <Box mx={3} className='cursor'>
+                                    <Typography variant="h6" color="inherit">
+                                        POSTS
+                                    </Typography>
+                                </Box>
+                            </Link>
+                            <Link to="/temas" className="text-decorator-none">
+                                <Box mx={3} className='cursor'>
+                                    <Typography variant="h6" color="inherit">
+                                        TOPICS
+                                    </Typography>
+                                </Box>
+                            </Link>
+                            <Link to="/formularioTema" className="text-decorator-none">
+                                <Box mx={3} className='cursor'>
+                                    <Typography variant="h6" color="inherit">
+                                        NEW TOPICS
+                                    </Typography>
+                                </Box>
+                            </Link>
+                            <Box mx={3} className='cursor' onClick={goLogout}>
+                                <Typography variant="h6" color="inherit">
+                                    LOGOUT
+                                </Typography>
+                            </Box>
                         </Box>
-                    </Link>
-                    <Link to="/formularioTema" className="text-decorator-none">
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                Cadastrar tema
-                            </Typography>
-                        </Box>
-                    </Link>
-                    <Box mx={1} className='cursor' onClick={goLogout}>
-                        <Typography variant="h6" color="inherit">
-                            Logout
-                        </Typography>
-                    </Box>
-                </Box>
-            </Toolbar>
-        </AppBar>
+                    </div>
+                </Toolbar>
+            </AppBar >
         );
     }
 

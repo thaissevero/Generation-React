@@ -1,3 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100;1,300&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.sobremim {
+    background-color: black;
+}
+
+.sobremimtab {
+    line-height: 1rem;
+}
+
 .titulo {
+    color: white;
+}
+
+.fundotab {
+    background-color: #FA8072;
+}
+
+.redes {
+    font-size: 55px !important;
+    color: white;
+    padding-right: 15px;
+}
+
+.itenstab {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.sobremimtab {
+    text-align: center;
+    color: black;
+    padding-left: 30%;
     font-weight: bold;
+    
 }

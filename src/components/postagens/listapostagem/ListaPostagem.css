@@ -1,3 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100;1,300&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif !important;
+}
+
 .text-decorator-none {
     text-decoration: none;
+}
+
+.cardpostagens {
+    width: 20vw;
+    height: 230px;
+    background: linear-gradient(135deg, #ebadb6 0%, #94e3d7 100%);
+}
+
+.div-posts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100vh;
 }

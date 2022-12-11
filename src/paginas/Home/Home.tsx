@@ -36,20 +36,20 @@ function Home() {
             <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
                 <Grid alignItems="center" item xs={6}>
                     <Box paddingX={20}>
-                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className='titulo'> Seja Bem-vinde </Typography>
-                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className='titulo'> Expresse aqui seus pensamentos e opiniões! </Typography>
+                        <Typography variant="h4" gutterBottom color="textPrimary" component="h3" align="center" className='titulo'> You're welcome! </Typography>
+                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className='titulo'> Be nice or go away </Typography>
                     </Box>
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>
                             <ModalPostagem />
                         </Box>
-                        <Link to="/posts" className= "text-decorator-none">
-                        <Button variant="outlined" className='botao'> Ver Postagens </Button>
+                        <Link to='/posts' className='text-decorator-none'>
+                            <Button variant="outlined" className='botao'> see all posts </Button> 
                         </Link>
                     </Box>
                 </Grid>
                 <Grid item xs={6}>
-                    <img src="https://i.imgur.com/H88yIo2.png" alt="" width="500px" height="500px" />
+                    <img src="https://64.media.tumblr.com/890df6164cd6549c841e4cdf08866be5/476b8c536f2b0bc5-76/s400x600/e2202a9abeaed5237be4b6e73c1b30b0be6b5021.gif" width="500px" height="500px" />
                 </Grid>
                 <Grid xs={12} className='postagens'>
                     <TabPostagem />

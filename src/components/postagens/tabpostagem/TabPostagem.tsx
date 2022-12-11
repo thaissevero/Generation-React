@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import { AppBar, Tab, Tabs, Typography } from '@material-ui/core';
 import { Box } from '@mui/material';
 import { TabContext, TabPanel } from '@material-ui/lab';
-import ListaPostagem from '../listapostagem/ListaPostagem';
+import { Instagram } from '@mui/icons-material';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import './TabPostagem.css';
 
 
@@ -15,19 +17,29 @@ function TabPostagem() {
         <>
             <TabContext value={value}>
                 <AppBar position="static">
-                    <Tabs centered indicatorColor="secondary" onChange={handleChange}>
-                        <Tab label="Todas as postagens" value="1" />
-                        <Tab label="Sobre-nós" value="2" />
+                    <Tabs centered indicatorColor="secondary" onChange={handleChange} className="sobremim">
+                        <Tab label="About me" value="1" />
                     </Tabs>
                 </AppBar>
-                <TabPanel value="1" >
-                    <Box display="flex" flexWrap="wrap" justifyContent="center">
-                        <ListaPostagem />
-                    </Box>
-                </TabPanel>
-                <TabPanel value="2">
-                    <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className="titulo">Sobre-nós</Typography>
-                    <Typography variant="body1" gutterBottom color="textPrimary" align="justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos ut eveniet natus totam et, voluptate dicta tempore alias, odio nobis non eius cupiditate minima inventore pariatur! Ipsum itaque consectetur voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo velit consequuntur suscipit fugiat, nam quis quod quaerat veritatis et, vel ratione beatae, facere neque! Quo animi porro voluptate saepe deleniti? Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore adipisci, officia aut quidem dolorum deserunt iure dolorem doloribus velit nobis quas consequatur at ullam odit, nesciunt est nulla nihil excepturi!</Typography>
+                <TabPanel value="1" className="fundotab">
+                    <div className='itenstab'>
+                        <div className='sobremimtab'>
+                            <p> My name is Thais and I live in Brazil!  </p>
+                            <p> I'm a Java Web Developer. I love technology, animes, mangas and games. </p>
+                        </div>
+                        <div>
+                            <Box mx={3}>
+                                <a href="https://github.com/thaissevero" target="_blank">
+                                    <GitHubIcon className='redes' /></a>
+
+                                <a href="https://www.linkedin.com/in/thais-severo/" target="_blank">
+                                    <LinkedInIcon className='redes' /></a>
+
+                                <a href="https://www.instagram.com/devilsuoh/" target="_blank">
+                                    <Instagram className="redes" /></a>
+                            </Box>
+                        </div>
+                    </div>
                 </TabPanel>
             </TabContext>
         </>

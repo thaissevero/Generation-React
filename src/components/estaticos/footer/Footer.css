@@ -1,18 +1,33 @@
 .box1 {
-    background-color: #3f51b5;
-    height: 120px;
-}
-
-.box2 {
-    background-color: #303F9F;
+    background-color: #ffcac5;
     height: 60px;
 }
 
-.redes {
-    font-size: 60px !important;
-    color: white;
+.textosfooter {
+    color: rgb(0, 0, 0);
+    font-variant-caps: all-small-caps;
 }
 
-.textos {
-    color: white;
+.textosfooter1 {
+    color: rgb(0, 0, 0);
+    font-variant-caps: all-small-caps;    
+}
+
+.textosfooter1:hover {
+    color: #f7604f;
+}
+
+hr {
+    background: radial-gradient(circle, rgba(0, 0, 0, 1) 100%, #f7604f 1%);
+    border: none;
+    height: 2px;
+    margin: 1px 0;
+    width: 100%;
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
 }

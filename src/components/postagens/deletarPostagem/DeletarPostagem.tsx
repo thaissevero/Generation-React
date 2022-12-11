@@ -73,35 +73,37 @@ function DeletarPostagem() {
 
     return (
         <>
-            <Box m={2}>
-                <Card variant="outlined" >
-                    <CardContent>
-                        <Box justifyContent="center">
-                            <Typography color="textSecondary" gutterBottom>
-                                Deseja deletar a Postagem:
-                            </Typography>
-                            <Typography color="textSecondary" >
-                            {post?.titulo}
-                            </Typography>
-                        </Box>
+            <div className="div-posts">
+                <Box m={2}>
+                    <Card variant="outlined" className="cardpostagens">
+                        <CardContent>
+                            <Box justifyContent="center">
+                                <Typography>
+                                    Deseja realmente deletar a Postagem?
+                                </Typography>
+                                <Typography color="textSecondary">
+                                    {post?.titulo}
+                                </Typography>
+                            </Box>
+                        </CardContent>
 
-                    </CardContent>
-                    <CardActions>
-                        <Box display="flex" justifyContent="start" ml={1.0} mb={2} >
-                            <Box mx={2}>
-                                <Button onClick={sim} variant="contained" className="marginLeft" size='large' color="primary">
-                                    Sim
-                                </Button>
+                        <CardActions>
+                            <Box display="flex" justifyContent="center" ml={1.0} mb={2} >
+                                <Box mx={2}>
+                                    <Button onClick={sim} variant="contained" size='large' color="primary" className="botao3">
+                                        Sim
+                                    </Button>
+                                </Box>
+                                <Box>
+                                    <Button onClick={nao} variant="contained" size='large' color="secondary" className="botao3">
+                                        Não
+                                    </Button>
+                                </Box>
                             </Box>
-                            <Box>
-                                <Button onClick={nao} variant="contained" size='large' color="secondary">
-                                    Não
-                                </Button>
-                            </Box>
-                        </Box>
-                    </CardActions>
-                </Card>
-            </Box>
+                        </CardActions>
+                    </Card>
+                </Box>
+            </div>
         </>
     );
 }

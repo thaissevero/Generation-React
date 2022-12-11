@@ -1,15 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100;1,300&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif !important;
+}
+
 .caixa {
-    background-color: #3F51B5;
+    background-color: #FA8072;
 }
 
 .titulo {
-    color: white !important;
-    font-weight: bold !important;
-}
-
-.botao {
-    border-color: white !important;
-    background-color: #3F51B5;
     color: white !important;
 }
 
@@ -17,11 +16,11 @@
     background-color: white;
 }
 
-.text-decorator-none{
+.text-decorator-none {
     text-decoration: none;
 }
 
-
 /*
 ; - usado para finalizar 
+botton esta com o nome classname="botao" que se encontra na pagina 'login'
 */

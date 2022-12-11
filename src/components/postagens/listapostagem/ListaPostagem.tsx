@@ -48,46 +48,48 @@ function ListaPostagem() {
 
     return (
         <>
-            {
-                postagens.map(postagem => (
-                    <Box m={2} >
-                        <Card variant="outlined">
-                            <CardContent>
-                                <Typography color="textSecondary" gutterBottom>
-                                    Postagens
-                                </Typography>
-                                <Typography variant="h5" component="h2">
-                                    {postagem.titulo}
-                                    <Typography variant="body2" component="p">
-                                        {postagem.texto}
+            <div className='div-posts'>
+                {
+                    postagens.map(postagem => (
+                        <Box m={2}>
+                            <Card className='cardpostagens' >
+                                <CardContent>
+                                    <Typography color="textSecondary" gutterBottom>
+                                        Postagem
                                     </Typography>
-                                    <Typography variant="body2" component="p">
-                                        {postagem.tema?.descricao}
+                                    <Typography variant="h5" component="h2">
+                                        {postagem.titulo}
+                                        <Typography variant="body2" component="p">
+                                            {postagem.texto}
+                                        </Typography>
+                                        <Typography variant="body2" component="p">
+                                            {postagem.tema?.descricao}
+                                        </Typography>
                                     </Typography>
-                                </Typography>
-                            </CardContent>
-                            <CardActions>
-                                <Box display="flex" justifyContent="center" mb={1.5} >
-                                    <Link to={`/formularioPostagem/${postagem.id}`} className="text-decorator-none">
-                                        <Box mx={1}>
-                                            <Button variant="contained" className="marginLeft" size='small' color='primary'>
-                                                atualizar
-                                            </Button>
-                                        </Box>
-                                    </Link>
-                                    <Link to={`/deletarPostagem/${postagem.id}`} className="text-decorator-none">
-                                        <Box mx={1}>
-                                            <Button variant="contained" size='small' color="secondary">
-                                                deletar
-                                            </Button>
-                                        </Box>
-                                    </Link>
-                                </Box>
-                            </CardActions>
-                        </Card>
-                    </Box>
-                ))
-            }
+                                </CardContent>
+                                <CardActions>
+                                    <Box display="flex" justifyContent="center" mb={1.5} >
+                                        <Link to={`/formularioPostagem/${postagem.id}`} className="text-decorator-none">
+                                            <Box mx={1}>
+                                                <Button variant="contained" size='small' color='primary' className="botao3" >
+                                                    atualizar
+                                                </Button>
+                                            </Box>
+                                        </Link>
+                                        <Link to={`/deletarPostagem/${postagem.id}`} className="text-decorator-none">
+                                            <Box mx={1}>
+                                                <Button variant="contained" size='small' color="secondary" className="botao3">
+                                                    deletar
+                                                </Button>
+                                            </Box>
+                                        </Link>
+                                    </Box>
+                                </CardActions>
+                            </Card>
+                        </Box>
+                    ))
+                }
+            </div>
         </>
     );
 }

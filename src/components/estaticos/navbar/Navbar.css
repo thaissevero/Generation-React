@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100;1,300&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif !important;
+}
+
 .cursor {
     cursor: pointer;
     color: white;
@@ -5,4 +11,21 @@
 
 .text-decorator-none {
     text-decoration: none;
+}
+
+.navbar {
+    background-color: black;
+}
+
+.itemnavbar {
+    float: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.itemnavbar1 {
+    top: 110%;
+    width: 9%;
 }

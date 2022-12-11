@@ -1,5 +1,5 @@
 .imagem2 {
-    background-image: url(https://i.imgur.com/3vBvnju.jpeg);
+    background-image: url(https://i.imgur.com/x6B8vBe.jpg);
     background-repeat: no-repeat;
     width: 100vh;
     min-height: 100vh;
@@ -7,11 +7,7 @@
     background-position: center;
 }
 
-.textos2 {
+.textocadastro {
     font-weight: bold !important;
-}
-
-.botaoCancelar {
-    margin-right: 20px !important
-
+    border-color: #b18597 !important;
 }

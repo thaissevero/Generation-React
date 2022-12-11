@@ -71,22 +71,23 @@ function DeletarTema() {
     }
 
     return (
-        <div className='container'>
+        <div className='todo-deletar'>
             <Box m={2}>
-                <Card variant="outlined">
+                <Card variant="outlined" className='cardtema'>
                     <CardContent>
                         <Box justifyContent="center">
-                            <Typography>Deseja deletar o tema:</Typography>
-                            <Typography color="textSecondary">Tema {tema?.id} - {tema?.descricao}</Typography>
+                            <Typography> Deseja realmente deletar o tema? </Typography>
+                            <Typography color="textSecondary"> Tema {tema?.id} - {tema?.descricao}</Typography>
                         </Box>
                     </CardContent>
+
                     <CardActions>
                         <Box display="flex" justifyContent="center" gap={2}>
-                            <Button variant="contained" size="large" color="secondary" onClick={nao}>
-                                Não
-                            </Button>
-                            <Button variant="contained" size="large" color="primary" onClick={sim} >
+                            <Button variant="contained" size="large" color="primary" onClick={sim} className="botao2">
                                 Sim
+                            </Button>
+                            <Button variant="contained" size="large" color="secondary" onClick={nao} className="botao2">
+                                Não
                             </Button>
                         </Box>
                     </CardActions>

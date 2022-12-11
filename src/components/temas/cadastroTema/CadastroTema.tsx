@@ -102,10 +102,11 @@ function CadastroTema() {
     }
 
     return (
-        <Container maxWidth="sm" className="topo">
+        <Container maxWidth="sm">
             <form onSubmit={cadastrar}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center">
-                    Formulário de cadastro tema
+                    Formulário: <br/>
+                    Cadastro de Tema
                 </Typography>
 
                 <TextField
@@ -118,7 +119,7 @@ function CadastroTema() {
                     fullWidth
                     label="Descrição" />
 
-                <Button type="submit" variant="contained" color="primary">
+                <Button type="submit" variant="contained" color="primary" className='botao'>
                     Finalizar
                 </Button>
             </form>

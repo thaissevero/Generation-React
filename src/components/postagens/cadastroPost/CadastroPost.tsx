@@ -132,10 +132,9 @@ function CadastroPost() {
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={cadastrar}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center">
-                    Formulário de cadastro de postagem
+                <Typography variant="h4" color="textSecondary" component="h1" align="center" className="textoatualizar">
+                    Formulário: cadastrar/atualizar postagem
                 </Typography>
-
                 <TextField
                     value={postagem.titulo}
                     onChange={(event: ChangeEvent<HTMLInputElement>) => updateModel(event)}
@@ -160,8 +159,8 @@ function CadastroPost() {
                     minRows={4}
                 />
 
-                <FormControl>
-                    <InputLabel id="temaSelect">Tema </InputLabel>
+                <FormControl fullWidth>
+                    <InputLabel id="temaSelect"> Tema </InputLabel>
                     <Select
                         labelId="temaSelect"
                         id="tema"
@@ -171,19 +170,15 @@ function CadastroPost() {
                                     Authorization: token,
                                 },
                             })
-                        }
-                    >
+                        }>
+
                         {temas.map((tema) => (
                             <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
                         ))}
                     </Select>
+
                     <FormHelperText>Escolha um tema para a postagem</FormHelperText>
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        color="primary"
-                        disabled={tema.id === 0}
-                    >
+                    <Button type="submit" color="primary" className="btnovopost" disabled={tema.id === 0}>
                         Finalizar
                     </Button>
                 </FormControl>
@@ -192,3 +187,7 @@ function CadastroPost() {
     );
 }
 export default CadastroPost;
+
+/** 
+multiline minrow deixa o form com mais espaço para o campo de texto
+*/
